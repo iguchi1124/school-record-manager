@@ -13,20 +13,20 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-group :development do
+group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'better_errors'
-  gem 'annotate'
-end
-
-group :test do
   gem 'spring-commands-rspec'
-  gem 'guard-rspec'
+  gem 'guard-rspec', require: false
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', require: false
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'annotate'
 end
 
 gem 'devise'
