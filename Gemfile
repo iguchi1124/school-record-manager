@@ -29,5 +29,5 @@ group :test do
   gem 'shoulda-matchers', require: false
 end
 
-# gem 'devise'
+gem 'devise'
 # gem 'cancancan'
