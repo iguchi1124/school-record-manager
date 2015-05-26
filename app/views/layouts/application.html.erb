@@ -2,13 +2,36 @@
 <html>
 <head>
   <title>SchoolRecordManager</title>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <nav id="side-menu">
+    <div class="pure-menu">
+        <a class="pure-menu-heading">Brand</a>
+
+        <ul class="pure-menu-list">
+            <% if user_signed_in? %>
+            <li class="pure-menu-item">
+              <%= link_to 'SIGN OUT', destroy_user_session_path, class: 'pure-menu-link' %>
+            </li>
+            <% else %>
+            <li class="pure-menu-item">
+              <%= link_to 'SIGN IN', new_user_session_path, class: 'pure-menu-link' %>
+            </li>
+            <% end %>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">LINK1</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">LINK2</a></li>
+        </ul>
+    </div>
+  </nav>
+
+  <div id="content-wrapper">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

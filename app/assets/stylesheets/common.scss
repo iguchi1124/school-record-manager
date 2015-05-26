@@ -1,0 +1,22 @@
+#side-menu {
+  width: 160px;
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  a {
+    border: none;
+    white-space: normal;
+    padding: 10px 20px;
+  }
+}
+
+#content-wrapper {
+  margin-left: 160px;
+  padding: 30px;
+}
