@@ -22,9 +22,11 @@ group :development do
 end
 
 group :test do
+  gem 'spring-commands-rspec'
+  gem 'guard-rspec'
   gem 'rspec-rails'
-  gem 'shoulda-matchers'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers', require: false
 end
 
 # gem 'devise'
