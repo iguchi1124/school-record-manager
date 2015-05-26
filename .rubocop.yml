@@ -1,0 +1,38 @@
+Encoding:
+  Enabled: false
+
+LineLength:
+  Enabled: false
+
+MethodLength:
+  Enabled: false
+
+IfUnlessModifier:
+  Enabled: false
+
+WhileUntilModifier:
+  Enabled: false
+
+CollectionMethods:
+  Enabled: false
+
+AvoidPerlBackrefs:
+  Enabled: false
+
+VariableInterpolation:
+  Enabled: false
+
+Semicolon:
+  AllowBeforeEndInOneLineMethods: false
+
+AsciiComments:
+  Enabled: false
+
+AvoidGlobalVars:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+ClassAndModuleChildren:
+  Enabled: false
