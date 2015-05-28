@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   namespace :admin do
-    resources :schools
+    resources :schools do
+      resources :klasses
+    end
   end
 end

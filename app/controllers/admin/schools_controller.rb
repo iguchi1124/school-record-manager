@@ -1,6 +1,9 @@
 class Admin::SchoolsController < ApplicationController
-  include SchoolDisplayable
   before_action :set_school, only: %i(show edit update destroy)
+
+  def index
+    @schools = School.includes(:klasses).all
+  end
 
   def show
   end

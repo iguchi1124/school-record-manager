@@ -1,14 +1,15 @@
 # == Schema Information
 #
-# Table name: schools
+# Table name: klasses
 #
 #  id         :integer          not null, primary key
 #  name       :string
-#  prefecture :string
+#  school_id  :integer
+#  password   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class School < ActiveRecord::Base
-  has_many :klasses
+class Klass < ActiveRecord::Base
+  belongs_to :school
 end
