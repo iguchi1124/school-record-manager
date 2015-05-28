@@ -1,4 +1,4 @@
-class Admin::SchoolsController < ApplicationController
+class Admin::SchoolsController < Admin::Base
   before_action :set_school, only: %i(show edit update destroy)
 
   def index

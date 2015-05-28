@@ -1,4 +1,4 @@
-class Admin::KlassesController < ApplicationController
+class Admin::KlassesController < Admin::Base
   before_action :set_school
   before_action :set_klass, only: %i(show edit update destroy)
 

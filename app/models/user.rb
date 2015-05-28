@@ -15,7 +15,7 @@
 #  last_sign_in_ip        :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  role                   :integer
+#  role                   :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -25,4 +25,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   enum role: %i(student staff)
+
+  def shift_role!
+    case role
+    when 'student'
+      staff!
+    when 'staff'
+      student!
+    end
+  end
 end
