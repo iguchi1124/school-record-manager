@@ -234,6 +234,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  bcrypt
   better_errors
   byebug
   coffee-rails (~> 4.1.0)
