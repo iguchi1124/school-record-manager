@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 
 gem 'sqlite3', group: :development
@@ -12,6 +11,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug'
@@ -30,5 +32,4 @@ group :development do
 end
 
 gem 'devise'
-# gem 'cancancan'
 gem 'bcrypt'
