@@ -11,8 +11,7 @@
 #  password_digest :string
 #
 
-class Klass < ActiveRecord::Base
-  has_secure_password
-  belongs_to :school
-  has_many :users
+FactoryGirl.define do
+  factory :klass do
+  end
 end

@@ -23,7 +23,7 @@ group :development, :test do
   gem 'guard-rspec', require: false
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers'
 end
 
 group :development do

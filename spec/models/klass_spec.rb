@@ -11,8 +11,11 @@
 #  password_digest :string
 #
 
-class Klass < ActiveRecord::Base
-  has_secure_password
-  belongs_to :school
-  has_many :users
+require 'rails_helper'
+
+RSpec.describe Klass, type: :model do
+  describe 'Associations' do
+    it { is_expected.to have_many(:users) }
+    it { is_expected.to belong_to(:school) }
+  end
 end

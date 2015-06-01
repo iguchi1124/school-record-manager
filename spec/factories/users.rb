@@ -19,22 +19,7 @@
 #  klass_id               :integer
 #
 
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
-  belongs_to :klass
-
-  enum role: %i(student staff)
-
-  def shift_role!
-    case role
-    when 'student'
-      staff!
-    when 'staff'
-      student!
-    end
+FactoryGirl.define do
+  factory :user do
   end
 end
