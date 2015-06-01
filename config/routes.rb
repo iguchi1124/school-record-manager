@@ -10,4 +10,8 @@ Rails.application.routes.draw do
     get 'users', to: 'users#index'
     post 'users/:id', to: 'users#update_role', as: 'update_user_role'
   end
+
+  scope 'classes/:klass_id' do
+    resources :subjects
+  end
 end

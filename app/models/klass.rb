@@ -15,4 +15,5 @@ class Klass < ActiveRecord::Base
   has_secure_password
   belongs_to :school
   has_many :users
+  has_many :subjects
 end

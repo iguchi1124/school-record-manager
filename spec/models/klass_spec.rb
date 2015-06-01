@@ -16,6 +16,7 @@ require 'rails_helper'
 RSpec.describe Klass, type: :model do
   describe 'Associations' do
     it { is_expected.to have_many(:users) }
+    it { is_expected.to have_many(:subjects) }
     it { is_expected.to belong_to(:school) }
   end
 end
