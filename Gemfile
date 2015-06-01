@@ -29,6 +29,7 @@ end
 group :development do
   gem 'better_errors'
   gem 'annotate'
+  gem 'rails-erd'
 end
 
 gem 'devise'
