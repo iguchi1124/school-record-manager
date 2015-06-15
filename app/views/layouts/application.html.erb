@@ -5,43 +5,45 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
-<body>        
+<body>
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">SchoolRecordManager</a>
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to 'SchoolRecordManager', root_path, class: 'navbar-brand' %>
+      </div>
+
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-bars"></i>MENU</a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li class="divider"></li>
+              <% if user_signed_in? %>
+              <li>
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+              </li>
+              <% else %>
+              <li>
+                <%= link_to 'ログイン', new_user_session_path %>
+              </li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+</header>
 
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li class="divider"></li>
-            <% if user_signed_in? %>
-            <li><a href="">
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-            </a></li>
-            <% else %>
-            <li><a href="">
-              <%= link_to 'ログイン', new_user_session_path %>
-            </a></li>
-            <% end %>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-            
-
-  <div id="content-wrapper">
-    <%= yield %>
-  </div>
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>
