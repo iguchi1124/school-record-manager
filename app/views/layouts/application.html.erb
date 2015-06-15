@@ -6,27 +6,38 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body>        
 
-  <nav id="side-menu">
-    <div class="pure-menu">
-        <a class="pure-menu-heading">Brand</a>
-
-        <ul class="pure-menu-list">
-            <% if user_signed_in? %>
-            <li class="pure-menu-item">
-              <%= link_to 'SIGN OUT', destroy_user_session_path, class: 'pure-menu-link', method: :delete %>
-            </li>
-            <% else %>
-            <li class="pure-menu-item">
-              <%= link_to 'SIGN IN', new_user_session_path, class: 'pure-menu-link' %>
-            </li>
-            <% end %>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">LINK1</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">LINK2</a></li>
-        </ul>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">SchoolRecordManager</a>
     </div>
-  </nav>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li class="divider"></li>
+            <% if user_signed_in? %>
+            <li><a href="">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+            </a></li>
+            <% else %>
+            <li><a href="">
+              <%= link_to 'ログイン', new_user_session_path %>
+            </a></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+            
 
   <div id="content-wrapper">
     <%= yield %>
