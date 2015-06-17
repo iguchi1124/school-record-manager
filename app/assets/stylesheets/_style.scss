@@ -5,23 +5,3 @@
 
   i { margin-right: 3px; }
 }
-
-.container {
-	h2 {
-		padding:5px;
-		border-left: solid 5px #777;
-		border-bottom: solid 2px #777;
-	}
-	.users-form {
-		max-width: 600px;
-		margin: 0 auto;
-		form {
-			border:solid 1px #777;
-			padding:20px;
-
-			input{
-				margin-bottom:10px;
-			}
-		}
-	}
-}
