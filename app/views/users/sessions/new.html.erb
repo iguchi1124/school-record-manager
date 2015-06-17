@@ -1,23 +1,32 @@
-<h2>ログイン</h2>
+<div class="col-sm-8 col-sm-offset-2">
+  <div class="well">
 
-<div class="users-form">
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form-horizontal') do |f| %>
+    <fieldset>
+      <legend>ログイン</legend>
 
-    <%= f.label "メールアドレス" %>
-    <%= f.email_field :email, autofocus: true ,class: 'form-control'%>
+      <div class="form-group">
+        <%= f.label "メールアドレス" %><br>
+        <%= f.email_field :email, autofocus: true ,class: 'form-control'%>
+      </div>
 
-    <%= f.label "パスワード" %>
-    <%= f.password_field :password, autocomplete: "off",class: 'form-control' %>
+      <div class="form-group">
+        <%= f.label "パスワード" %><br>
+        <%= f.password_field :password, autocomplete: "off",class: 'form-control' %>
+      </div>
 
-  <% if devise_mapping.rememberable? -%>
-      <%= f.check_box :remember_me %>
-      <%= f.label "記憶する" %>
-  <% end -%>
+      <% if devise_mapping.rememberable? -%>
+        <div class="form-group">
+          <%= f.check_box :remember_me %>
+          <%= f.label "記憶する" %>
+        </div>
+      <% end -%>
 
-  <div>
-    <%= f.submit "ログイン", class: 'btn btn-default' %>
+      <div class="form-group">
+        <%= f.submit "ログイン", class: 'btn btn-default' %>
+      </div>
+    </fieldset>
+  <% end %>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+  <%= render "users/shared/links" %>
 </div>
