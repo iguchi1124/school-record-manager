@@ -39,8 +39,15 @@ class User < ActiveRecord::Base
     end
   end
 
-  def save_klass!(klass)
-    self.klass = klass
+  def save_klass!(_klass)
+    self.klass = _klass
+    save!
+  end
+
+  def has_records!
+    klass.subjects.each do |subject|
+      records.build(subject: subject) unless subject.records.exists?(user: self)
+    end
     save!
   end
 end
