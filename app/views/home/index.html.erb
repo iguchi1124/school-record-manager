@@ -1,3 +1,14 @@
 <div class="page-header">
   <h1>Home</h1>
 </div>
+
+<table class="table">
+  <tr>
+    <th>学校</th>
+    <th>クラス</th>
+  </tr>
+  <tr>
+    <td><%= current_user.klass.present? ? current_user.klass.school.name : "未登録" %></td>
+    <td><%= current_user.klass.present? ? current_user.klass.name : "未登録" %></td>
+  </tr>
+</table>

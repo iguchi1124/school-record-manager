@@ -20,4 +20,6 @@ Rails.application.routes.draw do
       resources :subjects
     end
   end
+
+  get 'records', to: 'records#index', as: 'records'
 end
