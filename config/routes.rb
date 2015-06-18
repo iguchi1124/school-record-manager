@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  get 'home', to: 'home#index', as: 'home'
+
   devise_for :users
 
   get 'admin', to: 'admin/dashboards#index', as: 'dashboard'
