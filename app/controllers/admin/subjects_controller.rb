@@ -1,4 +1,4 @@
-class SubjectsController < ApplicationController
+class Admin::SubjectsController < Admin::Base
   before_action :set_klass
   before_action :set_subject, only: %i(show edit update destroy)
 
@@ -20,7 +20,7 @@ class SubjectsController < ApplicationController
     @subject = Subject.new(subject_params)
 
     if @subject.save
-      redirect_to subject_path(@klass, @subject)
+      redirect_to admin_subject_path(@klass, @subject)
       flash[:notice] = 'Subject was successfully created.'
     else
       render :new
@@ -38,7 +38,7 @@ class SubjectsController < ApplicationController
 
   def destroy
     @subject.destroy
-    redirect_to subjects_url
+    redirect_to admin_subjects_path
     flash[:notice] = 'Subject was successfully destroyed.'
   end
 
