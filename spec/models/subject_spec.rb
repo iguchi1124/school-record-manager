@@ -14,4 +14,5 @@ require 'rails_helper'
 
 RSpec.describe Subject, type: :model do
   it { is_expected.to belong_to(:klass) }
+  it { is_expected.to have_many(:records) }
 end

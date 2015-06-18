@@ -11,4 +11,6 @@
 
 class School < ActiveRecord::Base
   has_many :klasses
+
+  validates_presence_of :name, :prefecture
 end

@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :klass
+  has_many :records
 
   enum role: %i(student staff)
 
@@ -36,5 +37,17 @@ class User < ActiveRecord::Base
     when 'staff'
       student!
     end
+  end
+
+  def save_klass!(_klass)
+    self.klass = _klass
+    save!
+  end
+
+  def has_records!
+    klass.subjects.each do |subject|
+      records.build(subject: subject) unless subject.records.exists?(user: self)
+    end
+    save!
   end
 end

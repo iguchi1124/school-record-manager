@@ -1,0 +1,47 @@
+<div class="page-header">
+  <h1>Home</h1>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <h2>学生情報</h2>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th>学校</th>
+      <th>クラス</th>
+    </tr>
+    <tr>
+      <td><%= has_klass? ? current_user.klass.school.name : '未登録' %></td>
+      <td><%= has_klass? ? current_user.klass.name : '未登録' %></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><%= link_to has_klass? ? '学生情報を変更する' : '学生情報を登録する', registrations_path %></p>
+
+<% if has_klass? %>
+
+  <table class="table table-bordered">
+    <thead>
+      <h2>教科一覧</h2>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th>教科名</th>
+        <th>担当教員</th>
+      </tr>
+
+      <% current_user.klass.subjects.each do |subject| %>
+      <tr>
+        <td><%= subject.name %></td>
+        <td><%= subject.teacher_name %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <p><%= link_to '成績を確認する', records_path %></p>
+<% end %>

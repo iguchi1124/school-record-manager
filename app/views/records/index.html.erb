@@ -1,0 +1,27 @@
+<div class="page-header">
+  <h1>成績</h1>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <h2>教科一覧</h2>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th>教科名</th>
+      <th>担当教員</th>
+      <th>得点</th>
+    </tr>
+
+    <% current_user.klass.subjects.each do |subject| %>
+    <tr>
+      <td><%= subject.name %></td>
+      <td><%= subject.teacher_name %></td>
+      <td><%= subject.records.find_by(user: current_user).test_score %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '成績を更新する', registration_records_path %>
