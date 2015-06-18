@@ -2,17 +2,46 @@
   <h1>Home</h1>
 </div>
 
-<table class="table">
-  <tr>
-    <th>学校</th>
-    <th>クラス</th>
-    <th></th>
-  </tr>
-  <tr>
-    <td><%= has_klass? ? current_user.klass.school.name : '未登録' %></td>
-    <td><%= has_klass? ? current_user.klass.name : '未登録' %></td>
-    <td>
-      <%= link_to has_klass? ? '変更する' : '登録する', registrations_path %>
-    </td>
-  </tr>
+<table class="table table-bordered">
+  <thead>
+    <h2>学生情報</h2>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th>学校</th>
+      <th>クラス</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td><%= has_klass? ? current_user.klass.school.name : '未登録' %></td>
+      <td><%= has_klass? ? current_user.klass.name : '未登録' %></td>
+      <td>
+        <%= link_to has_klass? ? '変更する' : '登録する', registrations_path %>
+      </td>
+    </tr>
+  </tbody>
 </table>
+
+<% if has_klass? %>
+
+  <table class="table table-bordered">
+    <thead>
+      <h2>教科一覧</h2>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th>教科名</th>
+        <th>担当教員</th>
+      </tr>
+
+      <% current_user.klass.subjects.each do |subject| %>
+      <tr>
+        <td><%= subject.name %></td>
+        <td><%= subject.teacher_name %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
