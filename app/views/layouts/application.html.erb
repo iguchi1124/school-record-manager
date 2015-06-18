@@ -21,16 +21,21 @@
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-bars"></i>MENU</a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li class="divider"></li>
               <% if user_signed_in? %>
               <li>
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
               </li>
+                <% if current_user.staff? %>
+                  <li>
+                    <%= link_to 'ダッシュボード', dashboard_path %>
+                  </li>
+                <% end %>
               <% else %>
               <li>
                 <%= link_to 'ログイン', new_user_session_path %>
+              </li>
+              <li>
+                <%= link_to '新規登録', new_user_registration_path %>
               </li>
               <% end %>
             </ul>
@@ -42,7 +47,22 @@
 </header>
 
 <div class="container">
+
+   <% if notice %>
+    <div class="alert alert-info alert-dismissible" role="alert">
+      <%= notice %>
+      <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button>
+    </div>
+  <% end %>
+  <% if alert %>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <%= alert %>
+      <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button>
+    </div>
+  <% end %>
+
   <%= yield %>
+
 </div>
 
 </body>
