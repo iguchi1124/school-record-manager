@@ -12,4 +12,5 @@
 
 class Subject < ActiveRecord::Base
   belongs_to :klass
+  has_many :records
 end

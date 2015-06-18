@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :klass
+  has_many :records
 
   enum role: %i(student staff)
 
