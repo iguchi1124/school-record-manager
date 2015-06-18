@@ -6,9 +6,13 @@
   <tr>
     <th>学校</th>
     <th>クラス</th>
+    <th></th>
   </tr>
   <tr>
-    <td><%= current_user.klass.present? ? current_user.klass.school.name : "未登録" %></td>
-    <td><%= current_user.klass.present? ? current_user.klass.name : "未登録" %></td>
+    <td><%= current_user.klass.present? ? current_user.klass.school.name : '未登録' %></td>
+    <td><%= current_user.klass.present? ? current_user.klass.name : '未登録' %></td>
+    <td>
+      <%= link_to current_user.klass.present? ? '変更する' : '登録する', registrations_path %>
+    </td>
   </tr>
 </table>

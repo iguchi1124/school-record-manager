@@ -38,4 +38,9 @@ class User < ActiveRecord::Base
       student!
     end
   end
+
+  def save_klass!(klass)
+    self.klass = klass
+    save!
+  end
 end

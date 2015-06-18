@@ -1,0 +1,7 @@
+<ul>
+  <% @schools.each do |school| %>
+    <li>
+      <%= link_to school.name, registrations_school_path(school) %>
+    </li>
+  <% end %>
+</ul>

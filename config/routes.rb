@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  get 'admin', to: 'admin/dashboards#index', as: 'dashboard'
-
   namespace :admin do
+    get '/', to: 'dashboards#index', as: 'dashboard'
+
     resources :schools do
       resources :klasses
     end
@@ -22,4 +22,11 @@ Rails.application.routes.draw do
   end
 
   get 'records', to: 'records#index', as: 'records'
+
+  scope :registrations do
+    get '/', to: 'registrations#index', as: 'registrations'
+    get 'school/:id', to: 'registrations#school', as: 'registrations_school'
+    get 'class/:id', to: 'registrations#klass', as: 'registrations_klass'
+    post 'class/:id/authenticate', to: 'registrations#authenticate', as: 'registrations_authenticate'
+  end
 end
