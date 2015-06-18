@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20150618060621) do
   create_table "records", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "subject_id"
-    t.integer  "test_score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "test_score", default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "records", ["subject_id"], name: "index_records_on_subject_id"

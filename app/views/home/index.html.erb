@@ -11,17 +11,15 @@
     <tr>
       <th>学校</th>
       <th>クラス</th>
-      <th></th>
     </tr>
     <tr>
       <td><%= has_klass? ? current_user.klass.school.name : '未登録' %></td>
       <td><%= has_klass? ? current_user.klass.name : '未登録' %></td>
-      <td>
-        <%= link_to has_klass? ? '変更する' : '登録する', registrations_path %>
-      </td>
     </tr>
   </tbody>
 </table>
+
+<p><%= link_to has_klass? ? '学生情報を変更する' : '学生情報を登録する', registrations_path %></p>
 
 <% if has_klass? %>
 

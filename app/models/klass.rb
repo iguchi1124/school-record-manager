@@ -13,7 +13,10 @@
 
 class Klass < ActiveRecord::Base
   has_secure_password
+
   belongs_to :school
   has_many :users
   has_many :subjects
+
+  validates_presence_of :name, :school
 end

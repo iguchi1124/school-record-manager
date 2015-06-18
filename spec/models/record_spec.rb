@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  user_id    :integer
 #  subject_id :integer
-#  test_score :integer
+#  test_score :integer          default(0)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
