@@ -13,34 +13,33 @@
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
         <%= link_to 'SchoolRecordManager', user_signed_in? ? home_path : root_path, class: 'navbar-brand' %>
       </div>
 
-      <div class="collapse navbar-collapse">
+      <div class="collapse navbar-collapse" id="menu">
         <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-bars"></i>MENU</a>
-            <ul class="dropdown-menu" role="menu">
-              <% if user_signed_in? %>
-              <li>
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-              </li>
-                <% if current_user.staff? %>
-                  <li class="divider"></li>
-                  <li>
-                    <%= link_to 'ダッシュボード', admin_dashboard_path %>
-                  </li>
-                <% end %>
-              <% else %>
-              <li>
-                <%= link_to 'ログイン', new_user_session_path %>
-              </li>
-              <li>
-                <%= link_to '新規登録', new_user_registration_path %>
-              </li>
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+            </li>
+              <% if current_user.staff? %>
+                <li>
+                  <%= link_to 'ダッシュボード', admin_dashboard_path %>
+                </li>
               <% end %>
-            </ul>
-          </li>
+            <% else %>
+            <li>
+              <%= link_to 'ログイン', new_user_session_path %>
+            </li>
+            <li>
+              <%= link_to '新規登録', new_user_registration_path %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
