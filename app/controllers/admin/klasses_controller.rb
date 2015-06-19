@@ -19,7 +19,7 @@ class Admin::KlassesController < Admin::Base
     @klass = Klass.new(klass_params)
 
     if @klass.save
-      redirect_to admin_school_klass_path(params[:school_id], @klass)
+      redirect_to admin_school_klass_path(@school, @klass)
       flash[:notice] =  'Klass was successfully created.'
     else
       render :new
@@ -28,7 +28,7 @@ class Admin::KlassesController < Admin::Base
 
   def update
     if @klass.update(klass_params)
-      redirect_to @klass
+      redirect_to admin_school_klass_path(@school, @klass)
       flash[:notice] = 'Klass was successfully updated.'
     else
       render :edit
@@ -37,7 +37,7 @@ class Admin::KlassesController < Admin::Base
 
   def destroy
     @klass.destroy
-    redirect_to admin_school_klasses_path
+    redirect_to admin_school_klasses_path(@school)
     flash[:notice] = 'Klass was successfully destroyed.'
   end
 

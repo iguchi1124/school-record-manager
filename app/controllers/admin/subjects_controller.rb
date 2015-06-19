@@ -20,7 +20,7 @@ class Admin::SubjectsController < Admin::Base
     @subject = Subject.new(subject_params)
 
     if @subject.save
-      redirect_to admin_subject_path(@klass, @subject)
+      redirect_to admin_school_klass_subject_path(@school, @klass, @subject)
       flash[:notice] = 'Subject was successfully created.'
     else
       render :new
@@ -29,7 +29,7 @@ class Admin::SubjectsController < Admin::Base
 
   def update
     if @subject.update(subject_params)
-      redirect_to @subject
+      redirect_to admin_school_klass_subject_path(@school, @klass, @subject)
       flash[:notice] = 'Subject was successfully updated.'
     else
       render :edit
@@ -38,7 +38,7 @@ class Admin::SubjectsController < Admin::Base
 
   def destroy
     @subject.destroy
-    redirect_to admin_subjects_path
+    redirect_to admin_school_klass_subjects_path(@school, @klass)
     flash[:notice] = 'Subject was successfully destroyed.'
   end
 
