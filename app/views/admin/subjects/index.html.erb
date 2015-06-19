@@ -16,9 +16,9 @@
         <td><%= subject.klass.name %></td>
         <td><%= subject.name %></td>
         <td><%= subject.teacher_name %></td>
-        <td><%= link_to 'Show', admin_subject_path(@klass, subject) %></td>
-        <td><%= link_to 'Edit', edit_admin_subject_path(@klass, subject) %></td>
-        <td><%= link_to 'Destroy', admin_subject_path(@klass, subject), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_school_klass_subject_path(@school, @klass, subject) %></td>
+        <td><%= link_to 'Edit', edit_admin_school_klass_subject_path(@school, @klass, subject) %></td>
+        <td><%= link_to 'Destroy', admin_school_klass_subject_path(@school, @klass, subject), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Subject', new_admin_subject_path %>
+<%= link_to 'New Subject', new_admin_school_klass_subject_path %>

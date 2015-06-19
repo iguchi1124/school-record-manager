@@ -1,5 +1,5 @@
 class Admin::SubjectsController < Admin::Base
-  before_action :set_klass
+  before_action :set_school_and_klass
   before_action :set_subject, only: %i(show edit update destroy)
 
   def index
@@ -44,7 +44,8 @@ class Admin::SubjectsController < Admin::Base
 
   private
 
-  def set_klass
+  def set_school_and_klass
+    @school = School.find(params[:school_id])
     @klass = Klass.find(params[:klass_id])
   end
 

@@ -13,5 +13,5 @@
   <%= @subject.teacher_name %>
 </p>
 
-<%= link_to 'Edit', edit_admin_subject_path(@klass, @subject) %> |
-<%= link_to 'Back', admin_subjects_path %>
+<%= link_to 'Edit', edit_admin_school_klass_subject_path(@school, @klass, @subject) %> |
+<%= link_to 'Back', admin_school_klass_subjects_path(@school, @klass) %>
