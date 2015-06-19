@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @subject %> |
-<%= link_to 'Back', admin_subjects_path %>
+<%= link_to 'Show', admin_school_klass_subject_path(@school, @klass, @subject) %> |
+<%= link_to 'Back', admin_school_klass_subjects_path(@school, @klass) %>
