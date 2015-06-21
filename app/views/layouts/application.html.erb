@@ -25,19 +25,27 @@
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li>
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-in"></i> ログアウト
+              <% end %>
             </li>
               <% if current_user.staff? %>
                 <li>
-                  <%= link_to 'ダッシュボード', admin_dashboard_path %>
+                  <%= link_to admin_dashboard_path do %>
+                    <i class="fa fa-cog"></i> ダッシュボード
+                  <% end %>
                 </li>
               <% end %>
             <% else %>
             <li>
-              <%= link_to 'ログイン', new_user_session_path %>
+              <%= link_to new_user_session_path do %>
+                <i class="fa fa-sign-in"></i> ログイン
+              <% end %>
             </li>
             <li>
-              <%= link_to '新規登録', new_user_registration_path %>
+              <%= link_to new_user_registration_path do %>
+          			<i class="fa fa-users"></i> 新規会員登録
+          		<% end %>
             </li>
           <% end %>
         </ul>
@@ -64,6 +72,14 @@
   <%= yield %>
 
 </div>
+
+<footer>
+  <div class="footer-wrapper">
+    <address>
+      <p class="copyright">&copy; 高知高専 谷澤研究室 前期セミナーグループ</p>
+    </address>
+  </div>
+</footer>
 
 </body>
 </html>
