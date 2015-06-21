@@ -4,6 +4,11 @@ gem 'rails', '4.2.1'
 
 gem 'sqlite3', group: :development
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
