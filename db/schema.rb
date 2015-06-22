@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618060621) do
+ActiveRecord::Schema.define(version: 20150622025348) do
 
   create_table "klasses", force: :cascade do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150618060621) do
     t.integer  "test_score", default: 0
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "term"
   end
 
   add_index "records", ["subject_id"], name: "index_records_on_subject_id"
