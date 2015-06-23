@@ -40,3 +40,4 @@ end
 
 gem 'devise'
 gem 'bcrypt'
+gem 'active_decorator'
