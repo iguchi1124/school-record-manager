@@ -4,6 +4,8 @@ class RecordsController < ApplicationController
   before_action :require_records!
 
   def index
+    @subjects = current_user.klass.subjects
+    @record_terms = Record.terms.values
   end
 
   def registration
