@@ -46,7 +46,9 @@ class User < ActiveRecord::Base
 
   def has_records!
     klass.subjects.each do |subject|
-      records.build(subject: subject) unless subject.records.exists?(user: self)
+      Record.terms.keys.each do |term|
+        records.build(subject: subject, term: term) unless subject.records.exists?(user: self, term: term)
+      end
     end
     save!
   end
