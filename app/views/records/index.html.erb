@@ -11,17 +11,31 @@
     <tr>
       <th>教科名</th>
       <th>担当教員</th>
-      <th>得点</th>
+      <th>前期中間</th>
+      <th>前期末</th>
+      <th>後期中間</th>
+      <th>学年末</th>
     </tr>
 
-    <% current_user.klass.subjects.each do |subject| %>
+    <% @subjects.each do |subject| %>
     <tr>
       <td><%= subject.name %></td>
       <td><%= subject.teacher_name %></td>
-      <td><%= subject.records.find_by(user: current_user).test_score %></td>
+      <% 4.times do |term| %>
+        <td><%= subject.records.find_by(user: current_user, term: term).test_score %></td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>
 </table>
 
 <%= link_to '成績を更新する', registration_records_path %>
+
+<div class="row">
+  <% @record_terms.each do |term| %>
+    <div class="col-sm-6">
+      <h3><%= test_title(term) %></h3>
+      <%= render partial: 'graphs/bar', locals: { subjects: @subjects, term: term } %>
+    </div>
+  <% end %>
+</div>

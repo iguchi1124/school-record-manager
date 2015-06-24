@@ -4,17 +4,18 @@ class RecordsController < ApplicationController
   before_action :require_records!
 
   def index
+    @subjects = current_user.klass.subjects
+    @record_terms = Record.terms.values
   end
 
   def registration
   end
 
   def update
-    test_scores = params[:test_scores]
-    subject_ids = params[:subject_ids]
+    test_scores, record_ids = params[:test_scores], params[:record_ids]
     test_scores.each_with_index do |score, i|
-      record = current_user.klass.subjects.find(subject_ids[i]).records.find_by(user: current_user)
-      record.update(test_score: score)
+      record = Record.find(record_ids[i])
+      record.update!(test_score: score)
     end
 
     redirect_to registration_records_path

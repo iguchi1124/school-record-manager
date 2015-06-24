@@ -13,4 +13,5 @@
 #= require jquery
 #= require jquery_ujs
 #= require bootstrap-sprockets
-#= require footerFixed
+#= require footerFixed.min
+#= require Chart.min
