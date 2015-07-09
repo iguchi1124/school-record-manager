@@ -1,6 +1,6 @@
 <div class="col-sm-8 col-sm-offset-2">
   <div class="well">
-    <%= form_tag(registrations_authenticate_path, method: :post) do %>
+    <%= form_tag(registrations_authenticate_path, method: :post, class: 'form-inline') do %>
       <fieldset>
         <legend><%= "#{@klass.name} ログイン" %></legend>
         <div class="form-group">
