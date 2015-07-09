@@ -1,2 +1,2 @@
 $("#<%= j @user.id.to_s %>")
-  .html("<%= j render 'role_button' %>")
+  .html("<%= j render partial: 'role_button', locals: { user: @user } %>")

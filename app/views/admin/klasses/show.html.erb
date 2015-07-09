@@ -8,6 +8,6 @@
   <%= @klass.school_id %>
 </p>
 
-<%= link_to '編集', edit_admin_school_klass_path(params[:school_id], @klass) %> |
+<%= link_to '編集', edit_admin_school_klass_path(@school, @klass) %> |
 <%= link_to '戻る', admin_school_klasses_path %><br>
-<%= link_to '教科を登録する', admin_school_klass_subjects_path(@school, @klass)  %>
+<%= link_to '教科一覧', admin_school_klass_subjects_path(@school, @klass)  %>

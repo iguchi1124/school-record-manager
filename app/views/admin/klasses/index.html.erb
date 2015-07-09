@@ -11,9 +11,9 @@
     <% @school.klasses.each do |klass| %>
       <tr>
         <td><%= klass.name %></td>
-        <td><%= link_to ' 確認', admin_school_klass_path(params[:school_id], klass) %></td>
-        <td><%= link_to '編集', edit_admin_school_klass_path(params[:school_id], klass) %></td>
-        <td><%= link_to '削除', admin_school_klass_path(params[:school_id], klass), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+        <td><%= link_to 'クラス一覧', admin_school_klass_subjects_path(@school, klass) %></td>
+        <td><%= link_to '編集', edit_admin_school_klass_path(@school, klass) %></td>
+        <td><%= link_to '削除', admin_school_klass_path(@school, klass), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
       </tr>
     <% end %>
   </tbody>

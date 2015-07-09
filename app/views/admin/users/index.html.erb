@@ -1,14 +1,17 @@
-<table>
-  <tr>
-    <th>Email</th>
-    <th></th>
-  </tr>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.email %></td>
-    <td id="<%= user.id %>"><%= link_to user.role, admin_update_user_role_path(user.id), remote: true, method: :post %></td>
-  </tr>
-<% end %>
-
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td id="<%= user.id %>"><%= render partial: 'role_button', locals: { user: user } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
