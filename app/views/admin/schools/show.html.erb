@@ -1,15 +1,13 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Name:</strong>
+  <strong>学校名:</strong>
   <%= @school.name %>
 </p>
 
 <p>
-  <strong>Prefecture:</strong>
+  <strong>都道府県:</strong>
   <%= @school.prefecture %>
 </p>
 
-<%= link_to 'Edit', edit_admin_school_path(@school) %> |
-<%= link_to 'Back', admin_schools_path %><br>
+<%= link_to '編集', edit_admin_school_path(@school) %> |
+<%= link_to '戻る', admin_schools_path %><br>
 <%= link_to 'クラス一覧', admin_school_klasses_path(@school) %>

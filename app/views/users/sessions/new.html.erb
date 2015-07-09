@@ -1,5 +1,4 @@
-<div class="col-sm-8 col-sm-offset-2">
-  <div class="well">
+<div class="well">
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form-horizontal') do |f| %>
     <fieldset>
@@ -23,10 +22,9 @@
       <% end -%>
 
       <div class="form-group">
-        <%= f.submit "ログイン", class: 'btn btn-default' %>
+        <%= f.submit "ログイン", class: 'btn btn-primary' %>
       </div>
     </fieldset>
   <% end %>
-  </div>
-  <%= render "users/shared/links" %>
 </div>
+<%= render "users/shared/links" %>
