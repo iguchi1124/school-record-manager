@@ -1,11 +1,9 @@
 <h1><%= @school.name %></h1>
 
-<table　class='table table-borderd table-hover'>
+<table class='table table-borderd table-hover'>
   <thead>
     <tr>
       <th>クラス名</th>
-      <th>パスワード(担任の名前)</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -13,10 +11,9 @@
     <% @school.klasses.each do |klass| %>
       <tr>
         <td><%= klass.name %></td>
-        <td><%= klass.password %></td>
         <td><%= link_to ' 確認', admin_school_klass_path(params[:school_id], klass) %></td>
         <td><%= link_to '編集', edit_admin_school_klass_path(params[:school_id], klass) %></td>
-        <td><%= link_to '削除', admin_school_klass_path(params[:school_id], klass), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '削除', admin_school_klass_path(params[:school_id], klass), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
       </tr>
     <% end %>
   </tbody>
