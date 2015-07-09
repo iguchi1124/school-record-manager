@@ -1,4 +1,16 @@
-<%= form_tag(registrations_authenticate_path, method: :post) do %>
-  <%= password_field_tag :password %>
-  <%= submit_tag '認証' %>
-<% end %>
+<div class="col-sm-8 col-sm-offset-2">
+  <div class="well">
+    <%= form_tag(registrations_authenticate_path, method: :post) do %>
+      <fieldset>
+        <legend><%= "#{@klass.name} ログイン" %></legend>
+        <div class="form-group">
+          <%= password_field_tag :password, '', class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= submit_tag '認証', class: 'btn btn-primary' %>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

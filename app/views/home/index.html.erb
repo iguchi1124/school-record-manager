@@ -19,7 +19,7 @@
   </tbody>
 </table>
 
-<p><%= link_to has_klass? ? '学生情報を変更する' : '学生情報を登録する', registrations_path %></p>
+<p><%= link_to has_klass? ? '学生情報を変更する' : '学生情報を登録する', registrations_path, class: 'btn btn-primary' %></p>
 
 <% if has_klass? %>
 
@@ -43,5 +43,5 @@
     </tbody>
   </table>
 
-  <p><%= link_to '成績を確認する', records_path %></p>
+  <p><%= link_to '成績を確認する', records_path, class: 'btn btn-primary' %></p>
 <% end %>
