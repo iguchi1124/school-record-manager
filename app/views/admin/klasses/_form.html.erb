@@ -1,3 +1,6 @@
+
+  <div class="well">
+
 <%= form_for [:admin, @school, @klass] do |f| %>
   <% if @klass.errors.any? %>
     <div id="error_explanation">
@@ -11,15 +14,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <fieldset>
+  <legend>クラスの登録</legend>
+
+  <div class="form-group">
+    <%= f.label "クラス名" %><br>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
+  <div class="form-group">
+    <%= f.label "パスワード（担任の名前" %><br>
+    <%= f.password_field :password, class: 'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit "登録", class: 'btn btn-primary' %>
   </div>
+  </fieldset>
 <% end %>
+</div>
