@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>学校一覧</h1>
 
 <table class="table table-borderd table-hover">
@@ -16,9 +14,9 @@
       <tr>
         <td><%= school.name %></td>
         <td><%= school.prefecture %></td>
-        <td><%= link_to 'Show', admin_school_path(school) %></td>
-        <td><%= link_to 'Edit', edit_admin_school_path(school) %></td>
-        <td><%= link_to 'Destroy', admin_school_path(school), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '確認', admin_school_path(school) %></td>
+        <td><%= link_to '編集', edit_admin_school_path(school) %></td>
+        <td><%= link_to '削除', admin_school_path(school), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
       </tr>
     <% end %>
   </tbody>
