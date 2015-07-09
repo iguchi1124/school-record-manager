@@ -15,3 +15,4 @@
 #= require bootstrap-sprockets
 #= require footerFixed.min
 #= require Chart.min
+#= require Chart-initialize
