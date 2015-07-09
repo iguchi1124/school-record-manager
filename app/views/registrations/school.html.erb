@@ -1,7 +1,7 @@
 <ul>
   <% @school.klasses.each do |klass| %>
-    <li>
-      <%= link_to klass.name, registrations_klass_path(klass) %>
+    <li class="list-item">
+      <%= link_to klass.name, registrations_klass_path(klass), class: 'btn btn-primary' %>
     </li>
   <% end %>
 </ul>

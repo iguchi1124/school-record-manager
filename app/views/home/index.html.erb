@@ -2,7 +2,7 @@
   <h1>Home</h1>
 </div>
 
-<table class="table table-bordered table-hover">
+<table class="table table-hover">
   <thead>
     <h2>学生情報</h2>
   </thead>
@@ -19,11 +19,11 @@
   </tbody>
 </table>
 
-<p><%= link_to has_klass? ? '学生情報を変更する' : '学生情報を登録する', registrations_path %></p>
+<p><%= link_to has_klass? ? '学生情報を変更する' : '学生情報を登録する', registrations_path, class: 'btn btn-primary' %></p>
 
 <% if has_klass? %>
 
-  <table class="table table-bordered table-hover">
+  <table class="table table-hover">
     <thead>
       <h2>教科一覧</h2>
     </thead>
@@ -43,5 +43,5 @@
     </tbody>
   </table>
 
-  <p><%= link_to '成績を確認する', records_path %></p>
+  <p><%= link_to '成績を確認する', records_path, class: 'btn btn-primary' %></p>
 <% end %>

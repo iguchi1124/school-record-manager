@@ -6,7 +6,8 @@
   width: 100%;
 }
 
-footer {
+#footer {
+  margin-top: 50px;
 
   .footer-wrapper {
     padding: 30px;
@@ -25,6 +26,10 @@ footer {
       }
     }
   }
+}
+
+.graph {
+  padding: 10px;
 }
 
 /* =============== ランディングページ =============== */
@@ -99,4 +104,12 @@ footer {
       background-color: #FF9632;
     }
   }
+}
+
+/* =============== 学校一覧 =============== */
+
+
+li.list-item {
+  list-style: none;
+  padding: 10px;
 }
