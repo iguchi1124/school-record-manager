@@ -12,12 +12,5 @@
    ]
   }
   var bar_graph = new Chart(document.getElementById('<%= "bar#{term}" %>').getContext("2d")).Bar(barChartData);
-  var bars_count = bar_graph.datasets[0].bars.length;
-  for (var i = 0; i < bars_count; i++){
-   var bar = bar_graph.datasets[0].bars[i];
-   if (bar.value < 60) {
-     bar.fillColor = "rgba(191, 63, 63, 0.7)";
-     bar.strokeColor = "rgba(189, 55, 55, 0.7)";
-   }
-  }
+  changeColor(bar_graph);
 <% end %>

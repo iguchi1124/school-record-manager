@@ -35,7 +35,7 @@
   <% @record_terms.each do |term| %>
     <div class="col-sm-6">
       <h3><%= test_title(term) %></h3>
-      <%= render partial: 'graphs/bar', locals: { subjects: @subjects, term: term } %>
+      <%= render partial: 'bar', locals: { subjects: @subjects, term: term } %>
     </div>
   <% end %>
 </div>
