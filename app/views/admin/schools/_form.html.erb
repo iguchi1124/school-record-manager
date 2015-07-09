@@ -11,15 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :prefecture %><br>
-    <%= f.text_field :prefecture %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="well">
+  <fieldset>
+  <legend>学校の登録</legend>
+    <div class="form-group">
+      <%= f.label "学校名" %><br>
+      <%= f.text_field :name , class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label "都道府県" %><br>
+      <%= f.text_field :prefecture , class: 'form-control' %>
+    </div>
+    <div class="actions">
+      <%= f.submit "新規登録", class: 'btn btn-primary'%>
+    </div>
+  </fieldset>
+
+</div>
 <% end %>
