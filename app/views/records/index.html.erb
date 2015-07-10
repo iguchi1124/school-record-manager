@@ -31,13 +31,24 @@
 
 <%= link_to '成績を更新する', registration_records_path, class: 'btn btn-primary' %>
 
-<div class="row">
-  <% @record_terms.each do |term| %>
-    <div class="col-sm-6">
-      <div class="graph">
-        <h3><%= test_title(term) %></h3>
+<div class="record-graphs">
+  <ul class="nav nav-tabs nav-justified">
+    <% @record_terms.each do |term| %>
+      <li class="<%= 'active' if (term == 0) %>">
+        <%= link_to test_title(term), "#term-#{term}", data: { toggle: 'tab' } %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="tab-content">
+    <% @record_terms.each do |term| %>
+      <div id="term-<%= term %>" class="tab-pane fade in active">
         <%= render partial: 'bar', locals: { subjects: @subjects, term: term } %>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
+
+<%= javascript_tag do %>
+  for (i = 1; i < 4; i++) $('#term-' + i).removeClass('in active');
+<% end %>
