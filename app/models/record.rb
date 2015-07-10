@@ -17,5 +17,5 @@ class Record < ActiveRecord::Base
 
   validates :test_score, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
 
-  enum term: %i(first_term second_term third_term fourth_term)
+  enum term: { first_term: 1, second_term: 2, third_term: 3, fourth_term: 4 }
 end

@@ -1,11 +1,14 @@
 class RecordsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :require_klass!
-  before_action :require_records!
+  before_action :authenticate_user!, :require_klass!
+  before_action :set_term, :require_records!, except: %i(index)
+  before_action :set_records, only: %i(show registration)
 
   def index
     @subjects = current_user.klass.subjects
     @record_terms = Record.terms.values
+  end
+
+  def show
   end
 
   def registration
@@ -18,7 +21,7 @@ class RecordsController < ApplicationController
       record.update!(test_score: score)
     end
 
-    redirect_to registration_records_path
+    redirect_to record_path(@term)
     flash[:notice] = "更新しました。"
   end
 
@@ -32,6 +35,14 @@ class RecordsController < ApplicationController
   end
 
   def require_records!
-    current_user.has_records!
+    current_user.require_records!(@term)
+  end
+
+  def set_term
+    @term = params[:term_id].to_i
+  end
+
+  def set_records
+    @records = current_user.records.where(term: @term)
   end
 end

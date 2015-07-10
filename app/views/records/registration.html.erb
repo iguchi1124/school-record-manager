@@ -13,21 +13,16 @@
       <tr>
         <th>教科名</th>
         <th>担当教員</th>
-        <th>前期中間</th>
-        <th>前期末</th>
-        <th>後期中間</th>
-        <th>学年末</th>
+        <th><%= test_title(@term)%></th>
       </tr>
 
-      <% current_user.klass.subjects.each do |subject| %>
+      <% @records.each do |record| %>
         <tr>
-          <td><%= subject.name %></td>
-          <td><%= subject.teacher_name %></td>
-          <% 4.times do |term| %>
-            <td><%= text_field_tag 'test_scores[]', subject.records.find_by(user: current_user, term: term).test_score %></td>
-            <%= hidden_field_tag 'record_ids[]', subject.records.find_by(user: current_user, term: term).id %>
-          <% end %>
+          <td><%= record.subject.name %></td>
+          <td><%= record.subject.teacher_name %></td>
+          <td><%= text_field_tag 'test_scores[]', record.test_score %></td>
         </tr>
+        <%= hidden_field_tag 'record_ids[]', record.id %>
       <% end %>
 
     </tbody>

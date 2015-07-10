@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   end
 
   get 'records', to: 'records#index', as: 'records'
-  get 'records/registration', to: 'records#registration', as: 'registration_records'
+  get 'records/:term_id', to: 'records#show', as: 'record'
+  get 'records/registration/:term_id', to: 'records#registration', as: 'registration_records'
   patch 'records/update', to: 'records#update'
   put 'records/update', to: 'records#update'
 
