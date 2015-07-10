@@ -16,11 +16,7 @@ class RecordsController < ApplicationController
 
   def update
     test_scores, record_ids = params[:test_scores], params[:record_ids]
-    test_scores.each_with_index do |score, i|
-      record = Record.find(record_ids[i])
-      record.update!(test_score: score)
-    end
-
+    test_scores.each_with_index { |score, i| Record.find(record_ids[i]).update!(test_score: score) }
     redirect_to record_path(@term)
     flash[:notice] = "更新しました。"
   end
@@ -35,7 +31,7 @@ class RecordsController < ApplicationController
   end
 
   def require_records!
-    current_user.require_records!(@term)
+    current_user.require_records!(Record.terms[@term])
   end
 
   def set_term
@@ -43,6 +39,6 @@ class RecordsController < ApplicationController
   end
 
   def set_records
-    @records = current_user.records.where(term: @term)
+    @records = current_user.records.where(term: Record.terms[@term])
   end
 end
