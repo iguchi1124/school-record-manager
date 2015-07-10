@@ -1,8 +1,8 @@
 <div class="page-header">
-  <h1>成績登録</h1>
+  <h1><%= test_title(@term) %></h1>
 </div>
 
-<%= form_tag('/records/update', method: :patch) do %>
+<%= form_tag("/records/#{@term}/update", method: :patch) do %>
 
   <table class="table table-hover">
     <thead>
@@ -31,4 +31,4 @@
   <%= submit_tag '更新する', class: 'btn btn-primary' %>
 <% end %>
 
-<%= link_to '戻る', records_path %>
+<%= link_to '戻る', record_path(@term) %>

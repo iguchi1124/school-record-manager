@@ -1,13 +1,13 @@
 module RecordsHelper
   def test_title(term)
     case term
-    when 1
+    when 'first_term'
       "前記中間"
-    when 2
+    when 'second_term'
       "前期末"
-    when 3
+    when 'third_term'
       "後期中間"
-    when 4
+    when 'fourth_term'
       "学年末"
     end
   end

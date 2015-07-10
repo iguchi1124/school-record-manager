@@ -5,7 +5,7 @@ class RecordsController < ApplicationController
 
   def index
     @subjects = current_user.klass.subjects
-    @record_terms = Record.terms.values
+    @record_terms = Record.terms.keys
   end
 
   def show
@@ -39,7 +39,7 @@ class RecordsController < ApplicationController
   end
 
   def set_term
-    @term = params[:term_id].to_i
+    @term = params[:term]
   end
 
   def set_records

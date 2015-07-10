@@ -24,6 +24,9 @@
   </tbody>
 </table>
 
-<%= link_to '成績を更新する', registration_records_path(@term), class: 'btn btn-primary' %>
+<%= link_to '成績を更新する', registration_records_path(@term), class: 'btn btn-primary' %><br>
+<%= link_to '戻る', records_path %>
 
-<%= render partial: 'bar', locals: { klass: current_user.klass, records: @records, term: @term } %>
+<div class="graph">
+  <%= render partial: 'bar', locals: { klass: current_user.klass, records: @records, term: @term } %>
+</div>
