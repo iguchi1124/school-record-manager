@@ -18,11 +18,11 @@
 
         <div class="form-group">
           <%= f.label "学校名" %><br>
-          <%= f.text_field :name , class: 'form-control' %>
+          <%= f.text_field :name , class: 'form-control', onclick:'this.select();' %>
         </div>
         <div class="form-group">
           <%= f.label "都道府県" %><br>
-          <%= f.text_field :prefecture , class: 'form-control' %>
+          <%= f.text_field :prefecture , class: 'form-control', onclick:'this.select();' %>
         </div>
         <div class="actions">
           <%= f.submit "新規登録", class: 'btn btn-primary'%>
