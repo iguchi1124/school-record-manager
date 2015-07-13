@@ -20,7 +20,7 @@
         <tr>
           <td><%= record.subject.name %></td>
           <td><%= record.subject.teacher_name %></td>
-          <td><%= text_field_tag 'test_scores[]', record.test_score %></td>
+          <td><%= text_field_tag 'test_scores[]', record.test_score, class:'form-control', onclick:'this.select();' %></td>
         </tr>
         <%= hidden_field_tag 'record_ids[]', record.id %>
       <% end %>
