@@ -2,12 +2,12 @@
 
 <%= javascript_tag do %>
   var barChartData = {
-   labels : <%= raw subjects.map { |subject| subject.name } %>,
+   labels : <%= raw klass.subjects.map { |subject| subject.name } %>,
    datasets : [
      {
        fillColor : "rgba(151,187,205,0.5)",
        strokeColor : "rgba(151,187,205,1)",
-       data : <%= raw subjects.map{ |subject| subject.records.find_by(user: current_user, term: term).test_score } %>
+       data : <%= raw records.map{ |record| record.test_score } %>
      }
    ]
   }

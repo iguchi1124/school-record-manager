@@ -1,11 +1,14 @@
 class RecordsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :require_klass!
-  before_action :require_records!
+  before_action :authenticate_user!, :require_klass!
+  before_action :set_term, :require_records!, except: %i(index)
+  before_action :set_records, only: %i(show registration)
 
   def index
     @subjects = current_user.klass.subjects
-    @record_terms = Record.terms.values
+    @record_terms = Record.terms.keys
+  end
+
+  def show
   end
 
   def registration
@@ -13,12 +16,8 @@ class RecordsController < ApplicationController
 
   def update
     test_scores, record_ids = params[:test_scores], params[:record_ids]
-    test_scores.each_with_index do |score, i|
-      record = Record.find(record_ids[i])
-      record.update!(test_score: score)
-    end
-
-    redirect_to registration_records_path
+    test_scores.each_with_index { |score, i| Record.find(record_ids[i]).update!(test_score: score) }
+    redirect_to record_path(@term)
     flash[:notice] = "更新しました。"
   end
 
@@ -32,6 +31,14 @@ class RecordsController < ApplicationController
   end
 
   def require_records!
-    current_user.has_records!
+    current_user.require_records!(Record.terms[@term])
+  end
+
+  def set_term
+    @term = params[:term]
+  end
+
+  def set_records
+    @records = current_user.records.where(term: Record.terms[@term])
   end
 end

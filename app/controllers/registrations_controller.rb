@@ -22,7 +22,7 @@ class RegistrationsController < ApplicationController
       redirect_to home_path
     else
       flash[:alert] = 'パスワードが間違っています。'
-      redirect_to registration_klass_path(params[:id])
+      redirect_to registrations_klass_path(params[:id])
     end
   end
 end

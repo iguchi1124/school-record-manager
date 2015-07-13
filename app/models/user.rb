@@ -44,11 +44,9 @@ class User < ActiveRecord::Base
     save!
   end
 
-  def has_records!
+  def require_records!(term)
     klass.subjects.each do |subject|
-      Record.terms.keys.each do |term|
-        records.build(subject: subject, term: term) unless subject.records.exists?(user: self, term: term)
-      end
+      records.build(subject: subject, term: term) unless subject.records.exists?(user: self, term: term)
     end
     save!
   end

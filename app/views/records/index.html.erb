@@ -2,53 +2,6 @@
   <h1>成績</h1>
 </div>
 
-<table class="table table-hover">
-  <thead>
-    <h2>教科一覧</h2>
-  </thead>
-
-  <tbody>
-    <tr>
-      <th>教科名</th>
-      <th>担当教員</th>
-      <th>前期中間</th>
-      <th>前期末</th>
-      <th>後期中間</th>
-      <th>学年末</th>
-    </tr>
-
-    <% @subjects.each do |subject| %>
-    <tr>
-      <td><%= subject.name %></td>
-      <td><%= subject.teacher_name %></td>
-      <% 4.times do |term| %>
-        <td><%= subject.records.find_by(user: current_user, term: term).test_score %></td>
-      <% end %>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to '成績を更新する', registration_records_path, class: 'btn btn-primary' %>
-
-<div class="record-graphs">
-  <ul class="nav nav-tabs nav-justified">
-    <% @record_terms.each do |term| %>
-      <li class="<%= 'active' if (term == 0) %>">
-        <%= link_to test_title(term), "#term-#{term}", data: { toggle: 'tab' } %>
-      </li>
-    <% end %>
-  </ul>
-
-  <div class="tab-content">
-    <% @record_terms.each do |term| %>
-      <div id="term-<%= term %>" class="tab-pane fade in active">
-        <%= render partial: 'bar', locals: { subjects: @subjects, term: term } %>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<%= javascript_tag do %>
-  for (i = 1; i < 4; i++) $('#term-' + i).removeClass('in active');
+<% @record_terms.each do |term| %>
+  <%= link_to test_title(term), record_path(term), class: 'btn btn-primary btn-lg btn-block' %>
 <% end %>

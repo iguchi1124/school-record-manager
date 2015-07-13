@@ -20,9 +20,10 @@ Rails.application.routes.draw do
   end
 
   get 'records', to: 'records#index', as: 'records'
-  get 'records/registration', to: 'records#registration', as: 'registration_records'
-  patch 'records/update', to: 'records#update'
-  put 'records/update', to: 'records#update'
+  get 'records/:term', to: 'records#show', as: 'record'
+  get 'records/:term/registration', to: 'records#registration', as: 'registration_records'
+  patch 'records/:term/update', to: 'records#update'
+  put 'records/:term/update', to: 'records#update'
 
   scope :registrations do
     get '/', to: 'registrations#index', as: 'registrations'

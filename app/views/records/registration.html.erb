@@ -1,8 +1,8 @@
 <div class="page-header">
-  <h1>成績登録</h1>
+  <h1><%= test_title(@term) %></h1>
 </div>
 
-<%= form_tag('/records/update', method: :patch) do %>
+<%= form_tag("/records/#{@term}/update", method: :patch) do %>
 
   <table class="table table-hover">
     <thead>
@@ -13,21 +13,16 @@
       <tr>
         <th>教科名</th>
         <th>担当教員</th>
-        <th>前期中間</th>
-        <th>前期末</th>
-        <th>後期中間</th>
-        <th>学年末</th>
+        <th><%= test_title(@term)%></th>
       </tr>
 
-      <% current_user.klass.subjects.each do |subject| %>
+      <% @records.each do |record| %>
         <tr>
-          <td><%= subject.name %></td>
-          <td><%= subject.teacher_name %></td>
-          <% 4.times do |term| %>
-            <td><%= text_field_tag 'test_scores[]', subject.records.find_by(user: current_user, term: term).test_score %></td>
-            <%= hidden_field_tag 'record_ids[]', subject.records.find_by(user: current_user, term: term).id %>
-          <% end %>
+          <td><%= record.subject.name %></td>
+          <td><%= record.subject.teacher_name %></td>
+          <td><%= text_field_tag 'test_scores[]', record.test_score %></td>
         </tr>
+        <%= hidden_field_tag 'record_ids[]', record.id %>
       <% end %>
 
     </tbody>
@@ -36,4 +31,4 @@
   <%= submit_tag '更新する', class: 'btn btn-primary' %>
 <% end %>
 
-<%= link_to '戻る', records_path %>
+<%= link_to '戻る', record_path(@term) %>
