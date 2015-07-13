@@ -1,17 +1,17 @@
 <p>
-  <strong>Klass:</strong>
+  <strong>クラス:</strong>
   <%= @subject.klass.name %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>教科名:</strong>
   <%= @subject.name %>
 </p>
 
 <p>
-  <strong>Teacher name:</strong>
+  <strong>教員名:</strong>
   <%= @subject.teacher_name %>
 </p>
 
-<%= link_to 'Edit', edit_admin_school_klass_subject_path(@school, @klass, @subject) %> |
-<%= link_to 'Back', admin_school_klass_subjects_path(@school, @klass) %>
+<%= link_to '編集', edit_admin_school_klass_subject_path(@school, @klass, @subject) %> |
+<%= link_to '戻る', admin_school_klass_subjects_path(@school, @klass) %>

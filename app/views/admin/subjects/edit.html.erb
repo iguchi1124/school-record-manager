@@ -1,6 +1,37 @@
-<h1>Editing Subject</h1>
+<div class="col-sm-8 col-sm-offset-2">
+  <div class="well">
+	<%= form_for [:admin, @school, @klass, @subject] do |f| %>
+	  <% if @subject.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@subject.errors.count, "error") %> prohibited this subject from being saved:</h2>
 
-<%= render 'form' %>
+	      <ul>
+	      <% @subject.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	      
+	    </div>
+	  <% end %>
 
-<%= link_to 'Show', admin_school_klass_subject_path(@school, @klass, @subject) %> |
-<%= link_to 'Back', admin_school_klass_subjects_path(@school, @klass) %>
+	<fieldset>
+	  <legend>教科の編集</legend>
+
+	  <div class="form-group">
+	    <%= f.label "教科名" %><br>
+	    <%= f.text_field :name,class:'form-control' %>
+	  </div>
+	  <div class="form-group">
+	    <%= f.label "教員名" %><br>
+	    <%= f.text_field :teacher_name,class:'form-control' %>
+	  </div>
+	  <div class="form-group">
+	    <%= f.submit "登録",class:'btn btn-primary'%>
+	  </div>
+	</fieldset>
+	<% end %>
+  </div>
+
+<%= link_to '確認', admin_school_klass_subject_path(@school, @klass, @subject) %> |
+<%= link_to '戻る', admin_school_klass_subjects_path(@school, @klass) %>
+</div>
