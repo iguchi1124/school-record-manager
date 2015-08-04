@@ -2,7 +2,7 @@
   <div class="well">
     <%= form_tag(registrations_authenticate_path, method: :post, class: 'form-inline') do %>
       <fieldset>
-        <legend><%= "#{@klass.name} ログイン" %></legend>
+        <legend><%= "#{@klass.name}にログインする" %></legend>
         <div class="form-group">
           <%= password_field_tag :password, '', class: 'form-control' %>
         </div>
