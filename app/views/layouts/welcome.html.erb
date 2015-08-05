@@ -10,7 +10,7 @@
 <body>
 
 <header>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default" id="nav">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
@@ -20,6 +20,7 @@
         </button>
         <%= link_to 'SchoolRecordManager', root_path, class: 'navbar-brand' %>
       </div>
+
       <div class="collapse navbar-collapse" id="menu">
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
@@ -58,23 +59,7 @@
   </nav>
 </header>
 
-<div class="container">
-
-   <% if notice %>
-    <div class="alert alert-info alert-dismissible" role="alert">
-      <%= notice %>
-      <button aria-label="Close" class="close" data-dismiss="alert" typ="button"><span aria-hidden="true">&times;</span></button>
-    </div>
-  <% end %>
-  <% if alert %>
-    <div class="alert alert-warning alert-dismissible" role="alert">
-      <%= alert %>
-      <button aria-label="Close" class="close" data-dismiss="alert" type="button"><span aria-hidden="true">&times;</span></button>
-    </div>
-  <% end %>
-
-  <%= yield %>
-</div>
+<%= yield %>
 
 <footer id="footer">
   <div class="footer-wrapper">
