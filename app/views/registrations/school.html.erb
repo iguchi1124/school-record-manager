@@ -1,3 +1,10 @@
+<ol class="breadcrumb">
+  <%= render_breadcrumbs tag: 'li', separator: '' %>
+</ol>
+
+<div class="page-header">
+  <h1>クラス一覧</h1>
+</div>
 <ul>
   <% @school.klasses.each do |klass| %>
     <li class="list-item">
