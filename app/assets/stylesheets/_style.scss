@@ -45,9 +45,8 @@ li.list-item {
 
 
 .jumbotron {
-  margin: 0;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 
   .page-header {
     text-align: center;
@@ -93,6 +92,32 @@ li.list-item {
 
     .fa {
       color: #fff;
+      font-size: 80px;
+      line-height: 160px;
+    }
+  }
+}
+
+.info {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  .feature {
+    padding: 50px 0;
+    margin: 0;
+    text-align: center;
+
+    h3 {
+      font-size: 20px;
+
+      @media only screen and (max-width : 768px) {
+          font-size: 18px;
+      }
+    }
+
+    .fa {
+      color: #555;
       font-size: 80px;
       line-height: 160px;
     }
