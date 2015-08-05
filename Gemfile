@@ -2,12 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
 
-gem 'sqlite3', group: :development
-
-group :production do
-  gem 'pg'
-  gem 'rails_12factor'
-end
+gem 'sqlite3'
 
 gem 'unicorn'
 
@@ -43,3 +38,6 @@ end
 gem 'devise'
 gem 'bcrypt'
 gem 'breadcrumbs_on_rails'
+
+gem 'therubyracer'
+gem 'rb-readline'
