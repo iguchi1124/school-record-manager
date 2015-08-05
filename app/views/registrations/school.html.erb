@@ -8,7 +8,7 @@
 <ul>
   <% @school.klasses.each do |klass| %>
     <li class="list-item">
-      <%= link_to klass.name, registrations_klass_path(klass), class: 'btn btn-primary' %>
+      <%= link_to klass.name, registrations_klass_path(klass), class: 'btn btn-warning' %>
     </li>
   <% end %>
 </ul>
