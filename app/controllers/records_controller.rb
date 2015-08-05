@@ -4,7 +4,7 @@ class RecordsController < ApplicationController
   before_action :set_records, only: %i(show registration)
 
   add_breadcrumb "ホーム", :home_path
-  add_breadcrumb "成績", :records_path
+  add_breadcrumb "テスト一覧", :records_path
 
   def index
     @subjects = current_user.klass.subjects
@@ -12,6 +12,7 @@ class RecordsController < ApplicationController
   end
 
   def show
+    add_breadcrumb "成績", :record_path
   end
 
   def registration

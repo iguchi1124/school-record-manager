@@ -1,1 +1,5 @@
-<%= link_to user.role, admin_update_user_role_path(user.id), class: 'btn btn-warning', data: { remote: true, method: :post } %>
+<% if user == current_user%>
+  <%= link_to user.role, admin_update_user_role_path(user.id), class: 'btn btn-warning', data: { remote: true, method: :post }, disabled: true if user == current_user %>
+<% else %>
+  <%= link_to user.role, admin_update_user_role_path(user.id), class: 'btn btn-warning', data: { remote: true, method: :post } %>
+<% end %>
