@@ -97,3 +97,29 @@ li.list-item {
     }
   }
 }
+
+.info {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  .feature {
+    padding: 50px 0;
+    margin: 0;
+    text-align: center;
+
+    h3 {
+      font-size: 20px;
+
+      @media only screen and (max-width : 768px) {
+          font-size: 18px;
+      }
+    }
+
+    .fa {
+      color: #555;
+      font-size: 80px;
+      line-height: 160px;
+    }
+  }
+}
