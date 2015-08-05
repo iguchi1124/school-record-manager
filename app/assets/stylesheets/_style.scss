@@ -10,23 +10,17 @@ body {
   width: 100%;
 }
 
-#footer {
+.footer-wrapper {
+  padding: 30px;
+  color: #fff;
+  background-color: darken(#2196f3, 10%);
 
-  .footer-wrapper {
-    padding: 30px;
-    color: #fff;
-    background-color: darken(#2196f3, 10%);
+  .copyright {
+    text-align: center;
+    font-size: 16px;
 
-    address {
-
-      .copyright {
-        text-align: center;
-        font-size: 16px;
-
-        @media only screen and (max-width : 768px) {
-            font-size: 12px;
-        }
-      }
+    @media only screen and (max-width : 768px) {
+        font-size: 12px;
     }
   }
 }
