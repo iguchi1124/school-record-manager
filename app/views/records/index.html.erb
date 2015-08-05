@@ -1,3 +1,7 @@
+<ol class="breadcrumb">
+  <%= render_breadcrumbs tag: 'li', separator: '' %>
+</ol>
+
 <div class="col-sm-6 col-sm-offset-3">
   <% @record_terms.each do |term| %>
     <%= link_to test_title(term), record_path(term), class: 'btn btn-primary btn-lg btn-block' %>

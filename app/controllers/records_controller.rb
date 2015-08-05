@@ -3,6 +3,9 @@ class RecordsController < ApplicationController
   before_action :set_term, :require_records!, except: %i(index)
   before_action :set_records, only: %i(show registration)
 
+  add_breadcrumb "ホーム", :home_path
+  add_breadcrumb "成績", :records_path
+
   def index
     @subjects = current_user.klass.subjects
     @record_terms = Record.terms.keys
