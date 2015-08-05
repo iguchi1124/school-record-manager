@@ -42,5 +42,4 @@ end
 
 gem 'devise'
 gem 'bcrypt'
-gem 'active_decorator'
 gem 'breadcrumbs_on_rails'
