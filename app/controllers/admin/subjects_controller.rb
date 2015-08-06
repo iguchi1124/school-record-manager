@@ -37,7 +37,8 @@ class Admin::SubjectsController < Admin::Base
   end
 
   def destroy
-    @subject.destroy
+    @subject.records.map(&:destroy!)
+    @subject.destroy!
     redirect_to admin_school_klass_subjects_path(@school, @klass)
     flash[:notice] = 'Subject was successfully destroyed.'
   end
