@@ -1,37 +1,11 @@
 # school-record-manager
 
-高専生のための成績管理アプリケーション。システム名は仮称です。
+高専生のための成績管理アプリケーションです。
 
-## 開発環境構築
+## 作りたいサービス像
 
-* Ruby version 2.2.x
+成績や授業データを元に学生生活をサポートする様々なサービスを提供する。
 
-* Rails version 4.2.1
+## 開発について
 
-* セットアップ
-  ```
-  git clone https://github.com/E4-Seminar/school-record-manager.git
-
-  cd school-record-manager
-
-  bundle
-
-  bundle exec rails server
-  ```
-
-## git コミットメッセージ
-
-* :memo: ``:memo:`` ドキュメントを更新する時
-* :lipstick: ``:lipstick:`` デザインを編集する時
-* :white_check_mark: ``:white_check_mark:`` テストケースを追加した時
-* :+1: ``:+1:`` 機能実装した時
-* :fire: ``:fire:`` ファイル削除をした時
-
-## git ブランチ名
-
-* ``fix`` 修正を適用する時
-* ``feature`` 機能実装をする時
-* ``design`` デザインを編集する時
-* ``bugfix`` バグ修正した時
-* ``release-x.x.x`` リリースブランチ
-* その他、変更につき名付けてください
+このアプリのデータベースおよびソースコードを元に開発を始めたい場合は@iguchi1124までご連絡下さい。
